@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color:beige;
+    font-family: 'poppins';
+}
+h1{
+    color: green;
+}
+h2{
+    color: orangered;
+}
+
+a{
+    text-decoration: none;
+}
+
+input{
+    padding: 10px;
+    margin: 8px 8px 8px 0px;
+    border-radius: 10px;
+    border-color: orange;
+    background-color:beige;
+    
+}
+
+select{
+    padding: 10px;
+    margin: 8px 8px 8px 0px;
+    border-radius: 10px;
+    border-color: orange;
+    background-color:beige;
+}
+
+
+button{
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled{
+    background-color: grey;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: not-allowed;
+}
+button:hover{
+    background-color: navy;
+}
+

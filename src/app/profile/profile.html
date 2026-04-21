@@ -1,0 +1,33 @@
+<div style="display: flex;">
+  <div>
+    <h1>Parent</h1>
+    @if (id != null) {
+    <h3>Id: {{id}}</h3>
+    }
+
+    @if (name != null) {
+    <h3>Name: {{name}}</h3>
+    }
+    <br>
+<h2>User from AuthService: </h2>
+
+<h3>Name: {{userData.name}}</h3>
+<h3>Email: {{userData.email}}</h3>
+
+    @if(users.length > 0){
+    <h2>Users from child:</h2>
+    <ul>
+      @for(user of users; track $index){
+      <li>{{user}}</li>
+      }
+    </ul>
+    }
+
+  </div>
+  <br>
+  <div>
+    <h1>Child</h1>
+    <app-account-info [userData]="{id: id, name: name}" (passUsers)="getUsersFromChild($event)"></app-account-info>
+  </div>
+</div>
+<br>

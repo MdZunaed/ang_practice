@@ -1,0 +1,11 @@
+<h2>Data from paernt: <span>{{userData.name}}</span></h2>
+<ul>
+    @for (item of users; track $index) {
+
+    <li>{{item}}</li>
+
+    }
+
+</ul>
+
+<button (click)="sendusers()">Send data to parent</button>

@@ -1,0 +1,39 @@
+<h2>Create account</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeholder="Enter name">
+    @if (name?.invalid && (name?.dirty || name?.touched)) {
+    <div class="alert">
+        @if (name?.hasError('required')) {
+        <div>Name is required.</div>
+        }
+        @if (name?.hasError('minlength')) {
+        <div>Name must be at least 4 characters long.</div>
+        }
+        @if (name?.hasError('forbiddenName')) {
+        <div>Name cannot be Bob.</div>
+        }
+    </div>
+    }
+    <br>
+    <input type="text" formControlName="email" placeholder="Enter email">
+    @if (email?.invalid && (email?.dirty || email?.touched)) {
+    <div class="alert">
+        Invalid email
+    </div>
+    }
+    <br>
+    <input type="text" formControlName="password" placeholder="Enter password">
+    <br>
+    <select name="Gender" id="">
+        <option value="">Select gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br>
+    <input type="range" formControlName="age" min="12" max="30">
+    <br>
+    <br>
+    <button>Submit</button>
+    <!-- <button [disabled]="registerForm.invalid" >Submit</button> -->
+    <br>
+</form>

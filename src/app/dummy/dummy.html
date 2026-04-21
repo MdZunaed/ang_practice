@@ -1,0 +1,80 @@
+<br>
+<hr>
+<h2>Get & Set input</h2>
+<p>Typed name: {{inputName}}</p>
+<p>Set by button: {{nameByButton}}</p>
+<p>Set by Ref: {{nameByRef}}</p>
+<div>
+
+    <input type="text" placeholder="type here" (input)="setInputName($event)" #inputField>
+    <button (click)="setNameByButton()">Set by button</button>
+</div>
+<button (click)="setNameByRef(inputField.value)">Set by Ref</button>
+
+<hr>
+<br>
+<h2>If else</h2>
+<div style="display: flex;">
+    <button (click)="toggleContainer()" style="margin-right: 10px;">{{showContainer? 'Hide' : 'Show'}}</button>
+    @if(showContainer){
+    <div style="height: 50px; width: 100px; background-color: aqua;"></div>
+    }
+</div>
+<br>
+<hr>
+
+<br>
+<h2>For loop</h2>
+<div style=" display: flex; align-items: center;">
+    @for(vegetable of vegetables; track vegetable;
+    let id=$index;
+    let first=$first;
+    let last=$last;
+    let odd=$odd;
+    let even=$even;
+    let count = $count
+    ){
+    <!-- <p>
+            {{id+1}}.
+        </p> -->
+    @if(first){Start:}
+    <a routerLink="/profile/{{id}}/{{vegetable}}">
+        <div class="chips">{{vegetable}}
+
+        </div>
+    </a>
+    @if(last){<p>:End, Count: {{count}}</p>}
+    <p></p>
+    } @empty{
+    <p>Data not found!</p>
+    }
+</div>
+
+<br>
+<hr>
+
+<br>
+<h2>Signal</h2>
+<div style=" display: flex; align-items: center;">
+    <button (click)="decrementCounter()">-</button>
+    <div style="width: 50px; display: flex; justify-content: center;">
+        <p style="font-size: large; margin: 0px 10px;">{{count()}}</p>
+    </div>
+    <button (click)="incrementCounter()">+</button>
+</div>
+
+<br>
+<hr>
+
+<br>
+<h2>Two way binding</h2>
+<input [(ngModel)]="twoWayName" type="text" placeholder="type here">
+<h3>{{twoWayName}}</h3>
+<br>
+<hr>
+
+<br>
+<h2>Routing with router</h2>
+<button (click)="goToProfile()">Profile</button>
+<br>
+<hr>

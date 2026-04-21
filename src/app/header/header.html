@@ -1,0 +1,11 @@
+<nav>
+    <h1><a routerLink="">Kray</a> </h1>
+    <ul>
+        <a routerLink="dummy">Dummy</a>
+        <a routerLink="login">Login</a>
+        <a routerLink="register">Register</a>
+        <a [routerLink]="['profile', {id:1541, name:'Zunaed'}]">Profile</a>
+    </ul>
+</nav>
+
+<router-outlet/>
