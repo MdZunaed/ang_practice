@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div style="display: flexbox;">
+
+    @for (product of products(); track $index) {
+    <div style="width: 250px; background-color: blanchedalmond; padding:5px 18px; margin: 10px 5px; border-radius: 15px;">
+        <img src="{{product.images[0]}}" alt="" height="100px" width="100px">
+        <h4>{{product.title}}</h4>
+        <p>{{product.description}}</p>
+    </div>
+    }
+</div>

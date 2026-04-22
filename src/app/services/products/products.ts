@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Products {
-  productsApiUrl="https://dummyjson.com/products";
+  productsApiUrl="https://dummyjson.com/products?limit=10";
   constructor(private http:HttpClient){}
 
-  getProducts(){
+  getProducts<Product>(){
     return this.http.get(this.productsApiUrl);
   }
 }

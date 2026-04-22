@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Products } from '../../services/products/products';
+import { Product } from '../../services/products/product';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,16 @@ import { Products } from '../../services/products/products';
   styleUrl: './home.scss',
 })
 export class Home {
-
+products =signal<Product[]|undefined>(undefined);
   constructor(private productService: Products){
   
   }
 
   ngOnInit(){
     this.productService.getProducts().subscribe((res:any)=>{
-      console.log(res);
+      this.products.set(res.products);
+      console.log(this.products());
+      
     })
   }
 }

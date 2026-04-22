@@ -1,8 +1,21 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body{
     padding-left: 100px;
     padding-right: 100px;
     background-color:beige;
-    font-family: 'poppins';
+    font-family: 'poppins','PoppinsBold';
 }
 h1{
     color: green;
