@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { Login } from './login/login';
-import { Register } from './register/register';
-import { Home } from './home/home';
-import { Dummy } from './dummy/dummy';
-import { NotFound } from './not-found/not-found';
-import { Profile } from './profile/profile';
-import { AccountInfo } from './account-info/account-info';
+import { Login } from './pages/login/login';
+import { Register } from './pages/register/register';
+import { Home } from './pages/home/home';
+import { Dummy } from './pages/dummy/dummy';
+import { NotFound } from './pages/not-found/not-found';
+import { Profile } from './pages/profile/profile';
+import { AccountInfo } from './pages/account-info/account-info';
 
 export const routes: Routes = [
     {
@@ -39,7 +39,7 @@ export const routes: Routes = [
         path: 'dummy',
         // component: Dummy
         // lazy loading
-        loadComponent: () => import('./dummy/dummy').then(c => c.Dummy),
+        loadComponent: () => import('./pages/dummy/dummy').then(c => c.Dummy),
     },
     {
         path: '**',

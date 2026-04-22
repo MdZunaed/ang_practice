@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountInfo } from '../account-info/account-info';
-import { AuthService } from '../auth/auth-service';
+import { AuthService } from '../../services/auth/auth-service';
 
 @Component({
     selector: 'app-profile',
@@ -18,7 +18,7 @@ export class Profile {
     users: string[] = [];
     userData: any;
 
-    constructor(private route: ActivatedRoute, private auth:AuthService) {
+    constructor(private route: ActivatedRoute, private auth: AuthService) {
     }
     ngOnInit() {
         this.id = this.route.snapshot.paramMap.get('id');
@@ -34,7 +34,7 @@ export class Profile {
             this.name = params['name'];
         });
 
-        this.userData=this.auth.getUserData();
+        this.userData = this.auth.getUserData();
     }
 
     getUsersFromChild(users: string[]) {
