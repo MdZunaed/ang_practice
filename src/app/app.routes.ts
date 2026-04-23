@@ -6,11 +6,16 @@ import { Dummy } from './pages/dummy/dummy';
 import { NotFound } from './pages/not-found/not-found';
 import { Profile } from './pages/profile/profile';
 import { AccountInfo } from './pages/account-info/account-info';
+import { ProductDetails } from './pages/product-details/product-details';
 
 export const routes: Routes = [
     {
         path: '',
         component: Home
+    },
+    {
+        path: 'product-details/:id',
+        component: ProductDetails
     },
     {
         path: 'login',

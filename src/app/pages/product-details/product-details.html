@@ -1,0 +1,15 @@
+
+<div class="ProductCard">
+            <img [src]="product()?.images?.[0]" height="500px" width="500px">
+            <h4>{{product()?.title}}</h4>
+            <p>{{product()?.description}}</p>
+            <br>
+            <button (click)="sendProduct()">Send this Product</button>
+
+            @if(postProductResponse()!=null){
+                <div>
+                <br>
+                    postProductResponse: {{postProductResponse().toString()}}
+                </div>
+            }
+        </div>
