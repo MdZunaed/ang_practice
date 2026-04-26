@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormsModule, NgForm } from '@angular/forms';
-import { email, form, FormField, minLength, required } from '@angular/forms/signals';
+import { email, form, FormField, maxLength, minLength, required } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +23,7 @@ export class Login {
   });
   loginForm= form(this.loginModel, (field)=>{
     required(field.email, {message: 'Email is required'});
+    maxLength(field.email, 20, {message: 'Email should be maximum 20 characters'});
     required(field.password, {message: 'Password is required'});
     minLength(field.password, 5, {message: 'Password should be minimum 5 characters'})
   

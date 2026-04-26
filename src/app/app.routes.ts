@@ -7,45 +7,56 @@ import { NotFound } from './pages/not-found/not-found';
 import { Profile } from './pages/profile/profile';
 import { AccountInfo } from './pages/account-info/account-info';
 import { ProductDetails } from './pages/product-details/product-details';
+import { Auth } from './pages/auth/auth';
+import { Main } from './pages/main/main';
 
 export const routes: Routes = [
     {
         path: '',
-        component: Home
-    },
-    {
-        path: 'product-details/:id',
-        component: ProductDetails
-    },
-    {
-        path: 'login',
-        component: Login
-    },
-    {
-        path: 'register',
-        component: Register
-    },
-    {
-        path: 'profile',
-        component: Profile,
+        component: Main,
         children: [
             {
-                path: ':id/:name',
-                component: Profile
+                path: 'product-details/:id',
+                component: ProductDetails
             },
+
             {
-                path: 'account_info',
-                component: AccountInfo
+                path: 'profile',
+                component: Profile,
+                children: [
+                    {
+                        path: ':id/:name',
+                        component: Profile
+                    },
+                    {
+                        path: 'account_info',
+                        component: AccountInfo
+                    },
+                ],
             },
-        ],
+
+            {
+                path: 'dummy',
+                // component: Dummy
+                // lazy loading
+                loadComponent: () => import('./pages/dummy/dummy').then(c => c.Dummy),
+            },
+            { path: '', redirectTo: 'home', pathMatch: 'full' }
+        ]
+    },
+    {
+        path: '',
+        component: Auth,
+        children: [{
+            path: 'login',
+            loadComponent: () => import('./pages/login/login' ).then(m => m.Login)
+        },
+        {
+            path: 'register',
+            component: Register
+        },],
     },
 
-    {
-        path: 'dummy',
-        // component: Dummy
-        // lazy loading
-        loadComponent: () => import('./pages/dummy/dummy').then(c => c.Dummy),
-    },
     {
         path: '**',
         component: NotFound
